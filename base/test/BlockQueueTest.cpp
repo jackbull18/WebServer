@@ -21,24 +21,11 @@
 /*测试git*/
 class TestBlockQueue{
 public:
-    TestBlockQueue(int threadnums = 4):jack_(std::make_shared<jack>()){
+    TestBlockQueue(int threadnums = 4):jack_(std::make_shared<jack>()),threadnums_(threadnums) {
         jack_->bQueue_ = std::make_unique<BlockQueue<std::string>>(1000);
         jack_->isClose_ = false;
-        for(int i = 0; i < 1; i++){
+        for(int i = 0; i < threadnums_; i++){
             jack_->threads_.emplace_back(std::make_unique<std::thread>([jack= jack_]{
-                auto pid = std::this_thread::get_id();
-                std::stringstream ss;
-                ss << "test blockqueue thread id:  " << pid << "\n";
-                while(true){
-                    if(jack->isClose_){
-                        break;
-                    }else{
-                        jack->bQueue_->push(ss.str());
-                    }
-                }
-            }));
-        }
-        jack_->readThread_ = std::make_unique<std::thread>([jack= jack_]{
                 auto pid = std::this_thread::get_id();
                 std::stringstream ss;
                 std::string s = "";
@@ -50,22 +37,28 @@ public:
                     }
                     ss<< s << pid << "\n";
                     std:: cout << ss.str();
-                    if(s == "stop") {
-                        jack->isClose_ = true;
+                    if(s == "stop"){
                         break;
                     }
                 }
-        });
+            }));
+        }
     }
     void joinAll(){
+        for(int i=0; i < threadnums_; i++){
+            jack_->bQueue_->push("stop");
+        }
         for(auto & t: jack_->threads_){
             t->join();
         }
-        for(int i= 0; i < jack_->threads_.size(); i++){
-           jack_->bQueue_->push("stop"); 
+    }
+    void run(int times){
+        auto pid = std::this_thread::get_id();
+        std::stringstream ss;
+        ss << "test blockqueue thread id:  " << pid << "\n";
+        for(int i = 0; i < times; i++){
+            jack_->bQueue_->push(ss.str());
         }
-        jack_->readThread_->join();
-        jack_->isClose_ = true;
     }
     
 private:
@@ -73,14 +66,15 @@ private:
         std::atomic<bool> isClose_;
         std::unique_ptr<BlockQueue<std::string>> bQueue_;
         std::vector<std::unique_ptr<std::thread>> threads_;
-        std::unique_ptr<std::thread> readThread_;
     };
     std::shared_ptr<jack> jack_;
+    int threadnums_;
     
 };
 
 int main(){
     TestBlockQueue test(4);
+    test.run(1000);
     test.joinAll();
 }
 
