@@ -84,7 +84,8 @@ public:
      */
     void clear(){
         std::lock_guard<std::mutex> lock(mtx_);
-        queue_.clear();
+        std::queue<T> empty;
+        std::swap(queue_, empty);
     }
     /**
      * @brief 判断队列是否为空
@@ -132,7 +133,8 @@ public:
     void close(){
         {
             std::lock_guard<std::mutex> lock(mtx_);
-            queue_.clear();
+            std::queue<T> empty;
+            std::swap(queue_, empty);
             isClosed_ = true;
         }
         condConsumer_.notify_all();
