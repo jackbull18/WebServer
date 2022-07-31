@@ -1,6 +1,6 @@
 /**
  * @file buffer.cpp
- * @author your name (you@domain.com)
+ * @author jack
  * @brief buffer类的实现
  * @version 0.1
  * @date 2022-07-28

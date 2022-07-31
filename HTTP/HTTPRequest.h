@@ -1,6 +1,6 @@
 /**
  * @file HTTPRequest.h
- * @author your name (you@domain.com)
+ * @author jack
  * @brief HTTP报文解析类，处理HTTP报文
  * @version 0.1
  * @date 2022-07-27

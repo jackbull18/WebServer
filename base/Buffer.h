@@ -1,7 +1,7 @@
 /**
  * @file buffer.h
- * @author your name (you@domain.com)
- * @brief 
+ * @author jack
+ * @brief 自动增长缓冲区
  * @version 0.1
  * @date 2022-07-30
  * 

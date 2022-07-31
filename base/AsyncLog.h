@@ -1,34 +1,32 @@
 /**
- * @file syncLog.h
+ * @file AsyncLog.h
  * @author jack
- * @brief 同步日志
+ * @brief 异步日志类
  * @version 0.1
- * @date 2022-07-28
+ * @date 2022-07-29
  * 
  * @copyright Copyright (c) 2022
  * 
  */
-
-#pragma once
-
 #include <sys/stat.h>
 #include <string.h>
 #include <stdio.h>
-#include <mutex>jack
+#include <mutex>
+#include <memory>
+#include <thread>
 
 #include "Buffer.h"
 #include "Timer.h"
+#include "BlockQueue.h"
 
-
-
-class SyncLog{
+class AsyncLog{
 public:
     /* 初始化函数 */
     void init(int level, const char* path, const char* suffix);
 
     /* 懒汉单例模式 */
-    static SyncLog* instance();
-
+    static AsyncLog* instance();
+    static void flushLogThread();
     /* 写日志接口 */
     void write(int level, const char* format,...);
     void flush(){fflush(fp_);}
@@ -39,16 +37,18 @@ public:
 
     /* 判断日志器是否打开 */
     bool isOpen() const {return isOpen_;} 
-
-
 private:
     /* 日志一般为单例模式，将构造函数隐藏 */
-    SyncLog();
-    ~SyncLog();
+    AsyncLog();
+    ~AsyncLog();
 
     /* 日志记录辅助函数 */
     void appendLogLevelTitle_(int level);
     void createNewLogFile_();
+    void asyncWrite_();
+    
+
+
 private:
     /* 日志设置 */
     static const int LOG_PATH_LEN = 256;
@@ -80,13 +80,18 @@ private:
     /* 获取时间 */
     StdTimer timer_;
 
-};
+    /* 阻塞队列实现日志异步 */
+    std::unique_ptr<BlockQueue<std::string>> deque_;
 
+    /* 写日志线程 */
+    std::unique_ptr<std::thread> writeThread_;
+
+};
 
 /* 定义宏，方便LOG的使用 */
 #define LOG_BASE(level, format, ...) \
     do{\
-        SyncLog* log = SyncLog::instance();\
+        AsyncLog* log = AsyncLog::instance();\
         if(log->isOpen() && log->getLevel() <= level){\
             log->write(level, format, ##__VA_ARGS__);\
             log->flush();\

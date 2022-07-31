@@ -1,6 +1,6 @@
 /**
  * @file HTTPRequest.cpp
- * @author your name (you@domain.com)
+ * @author jack
  * @brief HTTP解析类实现
  * @version 0.1
  * @date 2022-07-27

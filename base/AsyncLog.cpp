@@ -1,28 +1,38 @@
 /**
- * @file syncLog.cpp
+ * @file AsyncLog.cpp
  * @author jack
- * @brief 同步日志类实现
+ * @brief 异步日志实现
  * @version 0.1
- * @date 2022-07-28
+ * @date 2022-07-29
  * 
  * @copyright Copyright (c) 2022
  * 
  */
 
-#include "SyncLog.h"
+#include "AsyncLog.h"
 #include "Timer.h"
 #include <assert.h>
 #include <chrono>
 #include <stdio.h>
 #include <stdarg.h>
 
-
-SyncLog::SyncLog(){
-    fp_ = nullptr;
+AsyncLog::AsyncLog(){
     lineCount_ = 0;
+    fp_ = nullptr;
+    deque_ = nullptr;
+    writeThread_ = nullptr;
 }
 
-SyncLog::~SyncLog(){
+AsyncLog::~AsyncLog(){
+    /* 确保日志全部写入 */
+    if(writeThread_ && writeThread_->joinable()){
+        while(!deque_->empty()){
+            deque_->flush();
+        }
+        deque_->close();
+        writeThread_->join();
+    }
+    /* 关闭文件流 */
     if(fp_){
         std::lock_guard<std::mutex> lock(mtx_);
         flush();
@@ -30,12 +40,12 @@ SyncLog::~SyncLog(){
     }
 }
 
-SyncLog* SyncLog::instance(){
-    static SyncLog Logger;
-    return &Logger;
+AsyncLog* AsyncLog::instance(){
+    static AsyncLog logger;
+    return &logger;
 }
 
-void SyncLog::init(int level, const char* path, const char* suffix){
+void AsyncLog::init(int level, const char* path, const char* suffix){
     /* 信息同步 */
     isOpen_ = true;
     level_ = level;
@@ -43,6 +53,15 @@ void SyncLog::init(int level, const char* path, const char* suffix){
     suffix_ = suffix;
 
     timer_.init();
+
+    /* 初始化写日志阻塞队列和线程 */
+    if(!deque_){
+        std::unique_ptr<BlockQueue<std::string>> newDeque(new BlockQueue<std::string>);
+        deque_ = std::move(newDeque);
+
+        std::unique_ptr<std::thread> newThread(new std::thread(flushLogThread));
+        writeThread_ = std::move(newThread);
+    }
 
     /* 打开日志文件，如果不存在则创建文件,日志保存文件不存在则创建文件夹 */
     // 构建文件名
@@ -64,7 +83,7 @@ void SyncLog::init(int level, const char* path, const char* suffix){
     }
 }
 
-void SyncLog::write(int level, const char* format,...){
+void AsyncLog::write(int level, const char* format,...){
     // 日志记录满，重新创建日志文件
     if(lineCount_ && (lineCount_ % MAX_LINES == 0)){
         createNewLogFile_();
@@ -89,13 +108,15 @@ void SyncLog::write(int level, const char* format,...){
         //添加结尾
         buffer_.append("\n\0",2);
 
-        //将日志写入文件流中
-        fputs(buffer_.peek(),fp_);
+        //将日志传入阻塞队列中
+        if(deque_ && !deque_->full()){
+            deque_->push(buffer_.clearBufferAllToStr());
+        }
         buffer_.clearBufferAll();
     }
 }
 
-void SyncLog::createNewLogFile_(){
+void AsyncLog::createNewLogFile_(){
      std::unique_lock<std::mutex> lock(mtx_);
      lock.unlock();
 
@@ -111,7 +132,7 @@ void SyncLog::createNewLogFile_(){
 
 }
 
-void SyncLog::appendLogLevelTitle_(int level){
+void AsyncLog::appendLogLevelTitle_(int level){
     switch(level){
         case 0:
             buffer_.append("[debug]: ",9);
@@ -131,12 +152,24 @@ void SyncLog::appendLogLevelTitle_(int level){
     }
 }
 
-int SyncLog::getLevel(){
+int AsyncLog::getLevel(){
     std::lock_guard<std::mutex> lock(mtx_);
     return level_;
 }
 
-void SyncLog::setLevel(int level){
+void AsyncLog::setLevel(int level){
     std::lock_guard<std::mutex> lock(mtx_);
     level_ = level;
+}
+
+void AsyncLog::flushLogThread(){
+    AsyncLog::instance()->asyncWrite_();
+}
+
+void AsyncLog::asyncWrite_(){
+    std::string str = "";
+    while(deque_->pop(str)){
+        std::lock_guard<std::mutex> lock(mtx_);
+        fputs(str.c_str(), fp_);
+    }
 }

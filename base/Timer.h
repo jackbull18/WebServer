@@ -1,6 +1,6 @@
 /**
  * @file stdTimer.h
- * @author your name (you@domain.com)
+ * @author jack
  * @brief chrono库简单封装
  * @version 0.1
  * @date 2022-07-28
