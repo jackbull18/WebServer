@@ -14,7 +14,7 @@
 #include <sys/stat.h>
 #include <string.h>
 #include <stdio.h>
-#include <mutex>jack
+#include <mutex>
 
 #include "Buffer.h"
 #include "Timer.h"
