@@ -18,7 +18,7 @@ public:
     Heap(int capacity) : capacity_(capacity) {
         heap_.reserve(capacity);
     }
-    ~Heap(){clear()};
+    ~Heap(){clear();};
 
     /* 数据查询接口 */
     int getCapacity() const{return capacity_;};
@@ -30,23 +30,59 @@ public:
     void clear(){heap_.clear();};
 
     /* 添加、弹出函数 */
-    void pop(T& node);
-    void push(T& node);
+    bool pop(T& node);
+    void push(T&& node);
 
 private:
-    void adjustUp_(size_t i);
-    void adjustDown_(size_t i);
+    void adjustUp_(size_t index);
+    void adjustDown_();
 
 private:
     std::vector<T> heap_;
     int capacity_;
 };
 template <typename T>
-void Heap<T>::pop(T& node) {
-
+void Heap<T>::push(T&& node) {
+    heap_.push_back(node); //默认添加在堆底
+    adjustUp_(heap_.size()-1); //堆该节点进行提升
 }
 
 template <typename T>
-void Heap<T>::push(T& node) {
+bool Heap<T>::pop(T& node) {
+    if(!empty()){
+        node = heap_.front();
+        std::swap(heap_.front(), heap_.back());
+        heap_.pop_back();
+        adjustDown_();
+        return true;
+    }
+    return false;
+}
 
+template <typename T>
+void Heap<T>::adjustUp_(size_t index) {
+    while(index > 0 && heap_[index] < heap_[index/2]){
+        std::swap(heap_[index], heap_[index/2]);
+        index /= 2;
+    }
+}
+/**
+ * @brief 将需要删除的元素下沉到向量的最后
+ * 
+ * @tparam T 
+ * @param index 
+ * @param t 
+ */
+template <typename T>
+void Heap<T>::adjustDown_() {
+    size_t i = 0;
+    size_t j = i*2 + 1;
+    size_t n = heap_.size();
+    while(j < n){
+        if(j + 1 < n && heap_[j+1] < heap_[j]) j++;
+        if(heap_[i] < heap_[j]) break;
+        std::swap(heap_[i], heap_[j]);
+        i = j;
+        j = i *2 + 1;
+    }
 }

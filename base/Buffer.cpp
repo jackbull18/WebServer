@@ -64,6 +64,10 @@ void Buffer::append(const char* str, size_t len){
     hasWritten(len);
 }
 
+void Buffer::append(const std::string& str){
+    append(str.data(), str.length());
+}
+
 void Buffer::clearBuffer(size_t len){
     assert(len <= readableBytes());
     readPos_ += len;

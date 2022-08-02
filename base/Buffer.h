@@ -44,6 +44,7 @@ public:
 
     /* 加入buffer */
     void append(const char* str, size_t len);
+    void append(const std::string& str);
 
 
     

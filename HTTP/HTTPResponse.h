@@ -10,8 +10,9 @@
  */
 
 #pragma once
-#include <Buffer.h>
+#include "Buffer.h"
 #include <string>
+#include <unordered_map>
 
 
 class HttpResponse{
@@ -26,11 +27,18 @@ public:
     /* 生成响应 */
     void createResponse(Buffer& buffer);
 
+    char* file();
+    size_t fileLen() const;
+
 private:
     void dealErrorCode_();
     void addStateLine_(Buffer& buffer);
     void addHeader_(Buffer& buffer);
     void addContent_(Buffer& buffer);
+    void errorContent_(Buffer& buffer, std::string message);
+
+    std::string getFileType_();
+    void HttpResponse::unmapFile();
 
 private:
     /* 请求资源信息 */
@@ -39,4 +47,12 @@ private:
 
     /* 请求的状态信息 */
     int code_;
+
+    char* mmFile_;
+    struct stat mmFileStat_;
+
+    /* 一些组成报文的信息 */
+    static const std::unordered_map<std::string, std::string> SUFFIX_TYPE;
+    static const std::unordered_map<int, std::string> CODE_STATUS;
+    static const std::unordered_map<int, std::string> CODE_PATH;
 };
