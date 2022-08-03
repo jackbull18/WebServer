@@ -40,13 +40,13 @@ public:
     int getMaxConnCount()const{return MAX_CONN_;}
 
     /* 关闭数据库 */
-    void closeConnectionPool();
+    void closeConnPool();
 
 
 private:
     /* 单例模式构造函数私有化 */
     SQLConnPool(){}
-    ~SQLConnPool(){closeConnectionPool();}
+    ~SQLConnPool(){closeConnPool();}
 private:
     /* 连接池信息 */
     int MAX_CONN_;
@@ -80,7 +80,7 @@ void SQLConnPool::freeConn(MYSQL* mysql){
     sem_post(&semId_);
 }
 
-void SQLConnPool::closeConnectionPool(){
+void SQLConnPool::closeConnPool(){
     std::lock_guard<std::mutex> lock(mtx_);
     while(!connQue_.empty()){
         auto sql = connQue_.front();

@@ -15,16 +15,16 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 
-HttpResponse::HttpResponse(){
+HTTPResponse::HTTPResponse(){
     path_ = "";
     srcDir_ = "";
     code_ = -1;
 }
-HttpResponse::~HttpResponse(){
+HTTPResponse::~HTTPResponse(){
     unmapFile();
 }
 
-void HttpResponse::init(std::string path, std::string srcDir, int code){
+void HTTPResponse::init(std::string path, std::string srcDir, int code){
     if(mmFile_) { unmapFile(); }
     path_ = path;
     srcDir_ = srcDir;
@@ -33,7 +33,7 @@ void HttpResponse::init(std::string path, std::string srcDir, int code){
     mmFileStat_ = { 0 };
 }
 
-void HttpResponse::createResponse(Buffer& buffer){
+void HTTPResponse::createResponse(Buffer& buffer){
     /* 判断请求的资源文件 */
     if(stat((srcDir_ + path_).data(), &mmFileStat_) < 0 || S_ISDIR(mmFileStat_.st_mode)) {
         code_ = 404;
@@ -50,7 +50,7 @@ void HttpResponse::createResponse(Buffer& buffer){
     addContent_(buffer);
 }
 
-void HttpResponse::addStateLine_(Buffer& buffer){
+void HTTPResponse::addStateLine_(Buffer& buffer){
     std::string status;
     if(CODE_STATUS.count(code_) == 1) {
         status = CODE_STATUS.find(code_)->second;
@@ -62,13 +62,13 @@ void HttpResponse::addStateLine_(Buffer& buffer){
     buffer.append("HTTP/1.1 " + std::to_string(code_) + " " + status + "\r\n");
 }
 
-void HttpResponse::addHeader_(Buffer& buffer){
+void HTTPResponse::addHeader_(Buffer& buffer){
     buffer.append("Connection: ");
     buffer.append("close\r\n");
     buffer.append("Content-type: " + getFileType_() + "\r\n");
 }
 
-void HttpResponse::addContent_(Buffer& buffer){
+void HTTPResponse::addContent_(Buffer& buffer){
     int srcFd = open((srcDir_ + path_).data(), O_RDONLY);
     if(srcFd < 0){
         errorContent_(buffer, "File Not Found!");
@@ -87,7 +87,7 @@ void HttpResponse::addContent_(Buffer& buffer){
     buffer.append("Content-length: " + std::to_string(mmFileStat_.st_size) + "\r\n\r\n");
 }
 
-void HttpResponse::errorContent_(Buffer& buffer, std::string message){
+void HTTPResponse::errorContent_(Buffer& buffer, std::string message){
     std::string body;
     std::string status;
     body += "<html><title>Error</title>";
@@ -105,7 +105,7 @@ void HttpResponse::errorContent_(Buffer& buffer, std::string message){
     buffer.append(body);
 }
 
-std::string HttpResponse::getFileType_(){
+std::string HTTPResponse::getFileType_(){
     /* 判断文件类型 */
     std::string::size_type idx = path_.find_last_of('.');
     if(idx == std::string::npos) {
@@ -118,22 +118,22 @@ std::string HttpResponse::getFileType_(){
     return "text/plain";
 }
 
-void HttpResponse::unmapFile(){
+void HTTPResponse::unmapFile(){
     if(mmFile_){
         munmap(mmFile_, mmFileStat_.st_size);
         mmFile_ = nullptr;
     }
 }
 
-char* HttpResponse::file() {
+char* HTTPResponse::file() {
     return mmFile_;
 }
 
-size_t HttpResponse::fileLen() const {
+size_t HTTPResponse::fileLen() const {
     return mmFileStat_.st_size;
 }
 
-void HttpResponse::dealErrorCode_(){
+void HTTPResponse::dealErrorCode_(){
     if(CODE_PATH.count(code_) == 1) {
         path_ = CODE_PATH.find(code_)->second;
         stat((srcDir_ + path_).data(), &mmFileStat_);

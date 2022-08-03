@@ -14,11 +14,11 @@
 
 #include "Buffer.h"
 
-class HttpRequest{
+class HTTPRequest{
 public:
     /* 构造、析构及初始化函数 */
-    HttpRequest();
-    ~HttpRequest() = default;
+    HTTPRequest();
+    ~HTTPRequest() = default;
 
     void init(); //多线程中将构造和初始化分开，能够加强异常安全
 

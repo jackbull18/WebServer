@@ -21,9 +21,9 @@ public:
     ~Epoller();
 
     /* 操作epoll */
-    bool AddFd(int fd, uint32_t events); //添加epoll事件
-    bool ModfildFd(int fd, uint32_t events); // 修改epoll事件
-    bool DeleteFd(int fd); //删除epoll注册事件
+    bool addFd(int fd, uint32_t events); //添加epoll事件
+    bool modfildFd(int fd, uint32_t events); // 修改epoll事件
+    bool deleteFd(int fd); //删除epoll注册事件
 public:
     /* 返回epoll_event信息 */
     int getEventFd(size_t i) const{ //返回已经注册的文件描述符
@@ -55,7 +55,7 @@ Epoller::~Epoller(){
     close(epollFd_);
 }
 
-bool Epoller::AddFd(int fd, uint32_t events){
+bool Epoller::addFd(int fd, uint32_t events){
     if(fd < 0) return false;
     epoll_event ev = {0};
     ev.data.fd = fd;
@@ -63,7 +63,7 @@ bool Epoller::AddFd(int fd, uint32_t events){
     return 0 == epoll_ctl(epollFd_, EPOLL_CTL_ADD, fd, &ev);
 }
 
-bool Epoller::ModfildFd(int fd, uint32_t events){
+bool Epoller::modfildFd(int fd, uint32_t events){
     if(fd < 0) return false;
     epoll_event ev = {0};
     ev.data.fd = fd;
@@ -71,7 +71,7 @@ bool Epoller::ModfildFd(int fd, uint32_t events){
     return 0 == epoll_ctl(epollFd_, EPOLL_CTL_MOD, fd, &ev);
 }
 
-bool Epoller::DeleteFd(int fd) {
+bool Epoller::deleteFd(int fd) {
     if(fd < 0) return false;
     epoll_event ev = {0};
     return 0 == epoll_ctl(epollFd_, EPOLL_CTL_DEL, fd, &ev);

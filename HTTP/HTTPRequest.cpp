@@ -14,11 +14,11 @@
 #include "HTTPRequest.h"
 
 
-HttpRequest::HttpRequest(){
+HTTPRequest::HTTPRequest(){
     init();
 }
 
-void HttpRequest::init(){
+void HTTPRequest::init(){
     method_ = "";
     path_ = "";
     version_ = "";
@@ -29,7 +29,7 @@ void HttpRequest::init(){
     state_ = REQUEST_LINE;
 }
 
-bool HttpRequest::parse(Buffer& buff){
+bool HTTPRequest::parse(Buffer& buff){
     if(buff.readableBytes() <= 0){
         return false;
     }
@@ -64,23 +64,23 @@ bool HttpRequest::parse(Buffer& buff){
     return true;
 }
 
-std::string HttpRequest::getPath() const{
+std::string HTTPRequest::getPath() const{
     return path_;
 }
 
-std::string HttpRequest::getMethod() const{
+std::string HTTPRequest::getMethod() const{
     return method_;
 }
 
-std::string HttpRequest::getVersion() const{
+std::string HTTPRequest::getVersion() const{
     return version_;
 }
 
-void HttpRequest::getHeaders(std::unordered_map<std::string, std::string>& headers) const{
+void HTTPRequest::getHeaders(std::unordered_map<std::string, std::string>& headers) const{
     headers = headers_;
 }
 
-bool HttpRequest::parseRequestLine_(const std::string& line){
+bool HTTPRequest::parseRequestLine_(const std::string& line){
     std::regex pattern("^([^ ]*) ([^ ]*) HTTP/([^ ]*)$");
     std::smatch subMatch;
     if(std::regex_match(line,subMatch,pattern)){
@@ -93,7 +93,7 @@ bool HttpRequest::parseRequestLine_(const std::string& line){
     return false;
 }
 
-void HttpRequest::parseHeader_(const std::string& line){
+void HTTPRequest::parseHeader_(const std::string& line){
     std::regex pattern("^([^ ]*): ?(.*)$");
     std::smatch subMatch;
     if(std::regex_match(line,subMatch,pattern)){
@@ -103,7 +103,7 @@ void HttpRequest::parseHeader_(const std::string& line){
     }
 }
 
-void HttpRequest::parseBody_(const std::string& line){
+void HTTPRequest::parseBody_(const std::string& line){
     body_ = line;
     state_ = FINISH;
 }

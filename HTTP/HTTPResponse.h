@@ -11,15 +11,18 @@
 
 #pragma once
 #include "Buffer.h"
-#include <string>
 #include <unordered_map>
+#include <fcntl.h>       // open
+#include <unistd.h>      // close
+#include <sys/stat.h>    // stat
+#include <sys/mman.h>    // mmap, munmap
 
 
-class HttpResponse{
+class HTTPResponse{
 public:
     /* 构造函数与析构函数 */
-    HttpResponse();
-    ~HttpResponse();
+    HTTPResponse();
+    ~HTTPResponse();
 
     /* 初始化函数 */
     void init(std::string path, std::string srcDir, int code);
@@ -30,6 +33,8 @@ public:
     char* file();
     size_t fileLen() const;
 
+    void unmapFile();
+
 private:
     void dealErrorCode_();
     void addStateLine_(Buffer& buffer);
@@ -38,7 +43,7 @@ private:
     void errorContent_(Buffer& buffer, std::string message);
 
     std::string getFileType_();
-    void HttpResponse::unmapFile();
+    
 
 private:
     /* 请求资源信息 */
