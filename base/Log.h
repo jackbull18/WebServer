@@ -10,12 +10,13 @@
  */
 class Log{
     
+    
 }
 
 /* 定义宏，方便LOG的使用 */
 #define LOG_BASE(level, format, ...) \
     do{\
-        AsyncLog* log = AsyncLog::instance();\
+        Log* log = Log::instance();\
         if(log->isOpen() && log->getLevel() <= level){\
             log->write(level, format, ##__VA_ARGS__);\
             log->flush();\
