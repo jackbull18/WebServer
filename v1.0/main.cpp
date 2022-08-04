@@ -15,7 +15,7 @@
 int main(){
     /* 读取参数 */
     Config config;
-    char filename[] = "./cofig/config.json";
+    char filename[] = "config.json";
     config.parseJson(filename);
 
     /* 初始化服务器 */
