@@ -18,6 +18,7 @@
 #include "../sql/SQLConnPool.h"
 #include "../HTTP/HTTPConn.h"
 #include "../config/config.h"
+#include "../base/AsyncLog.h"
 
 #include <memory>
 #include <unordered_map>
@@ -34,12 +35,12 @@
 class WebServer{
 public:
     /* 构造、析构和初始化函数 */
-    WebServer();
+    WebServer(){}
     ~WebServer();
     void init(int port, int timeoutMS, bool optLinger, 
         int sqlPort, const char* sqlUser, const  char* sqlPwd, 
         const char* dbName, int connPoolNum, int threadNum,
-        bool openLog, int logLevel, int logQueSize);
+        bool openLog, int logLevel, int logQueSize, int trigMode);
     
     void init(Config &config);
     
@@ -49,6 +50,12 @@ private:
     /* 服务器内部函数 */
     /* 初始化连接 */
     bool initSocket_();
+
+    /* 初始化事件模式 */
+    void initEventMode_(int trigMode);
+
+    /* 初始化日志 */
+    void initLog_(int logLevel, int logQueSize);
 
     /* 添加连接 */
     void addClient_(int fd, sockaddr_in addr);
@@ -92,6 +99,9 @@ private:
     int listenFd_;                              /* 监听文件描述符 */
     char* srcDir_;                              /* 资源地址 */
     bool openLinger_;                           /* 是否开启linger */
+    int threadNum_;
+    int sqlConnNum_;
+
     static const int MAX_FD = 65536;            /* 最大的连接数量 */
 
     uint32_t listenEvent_;                      /* 监听Epoll事件 */

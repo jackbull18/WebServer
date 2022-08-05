@@ -45,7 +45,7 @@ AsyncLog* AsyncLog::instance(){
     return &logger;
 }
 
-void AsyncLog::init(int level, const char* path, const char* suffix){
+void AsyncLog::init(int level, const char* path, const char* suffix, int queSize){
     /* 信息同步 */
     isOpen_ = true;
     level_ = level;
@@ -56,7 +56,7 @@ void AsyncLog::init(int level, const char* path, const char* suffix){
 
     /* 初始化写日志阻塞队列和线程 */
     if(!deque_){
-        std::unique_ptr<BlockQueue<std::string>> newDeque(new BlockQueue<std::string>);
+        std::unique_ptr<BlockQueue<std::string>> newDeque(new BlockQueue<std::string>(queSize));
         deque_ = std::move(newDeque);
 
         std::unique_ptr<std::thread> newThread(new std::thread(flushLogThread));

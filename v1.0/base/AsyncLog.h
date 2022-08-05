@@ -22,7 +22,7 @@
 class AsyncLog{
 public:
     /* 初始化函数 */
-    void init(int level, const char* path, const char* suffix);
+    void init(int level, const char* path, const char* suffix,int queSize);
 
     /* 懒汉单例模式 */
     static AsyncLog* instance();

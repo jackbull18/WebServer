@@ -17,8 +17,6 @@
 #include <unordered_map>
 #include <assert.h>
 
-#include "Heap.h"
-
 
 /* 一些类型别名的定义 */
 typedef std::function<void()> TimeOutCallback;
@@ -161,7 +159,6 @@ void HeapTimer::delNode_(size_t index){
             upFilter_(i);
         }
     }
-
     ref_.erase(heap_.back().id);
     heap_.pop_back();
 }
