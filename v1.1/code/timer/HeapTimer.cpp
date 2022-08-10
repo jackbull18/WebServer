@@ -10,6 +10,14 @@
  */
 #include "HeapTimer.h"
 
+HeapTimer::HeapTimer(int capacity){
+    heap_.reserve(capacity);
+}
+HeapTimer::~HeapTimer(){
+    heap_.clear();
+    ref_.clear();
+}
+
 inline void HeapTimer::addNode(int id , int timeout, const TimeOutCallback& callback){
     size_t index;
     if(ref_.count(id) == 0){

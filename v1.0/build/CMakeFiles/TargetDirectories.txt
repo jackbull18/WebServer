@@ -1,0 +1,3 @@
+/home/ubuntu/jack/Github/WebServer/v1.0/build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/jack/Github/WebServer/v1.0/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/jack/Github/WebServer/v1.0/build/CMakeFiles/webserver.dir

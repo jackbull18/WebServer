@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Aug 10 13:02:04 2022
+# Make data base, printed on Wed Aug 10 20:08:44 2022
 
 # Variables
 
@@ -33,13 +33,13 @@ XDG_SESSION_TYPE = tty
 # default
 MAKE_VERSION := 4.2.1
 # makefile
-CURDIR := /home/ubuntu/jack/Github/WebServer
+CURDIR := /home/ubuntu/jack/Github/WebServer/v1.1
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"e1243840abbb4e31a890d397033a9abf.zh-cn","_translationsConfigFile":"/home/ubuntu/.vscode-server/data/clp/e1243840abbb4e31a890d397033a9abf.zh-cn/tcf.json","_cacheRoot":"/home/ubuntu/.vscode-server/data/clp/e1243840abbb4e31a890d397033a9abf.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ubuntu/.vscode-server/data/clp/e1243840abbb4e31a890d397033a9abf.zh-cn/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/home/ubuntu/.vscode-server/data/clp/e1243840abbb4e31a890d397033a9abf.zh-cn/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"e1243840abbb4e31a890d397033a9abf.zh-cn","_translationsConfigFile":"/home/ubuntu/.vscode-server/data/clp/e1243840abbb4e31a890d397033a9abf.zh-cn/tcf.json","_cacheRoot":"/home/ubuntu/.vscode-server/data/clp/e1243840abbb4e31a890d397033a9abf.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ubuntu/.vscode-server/data/clp/e1243840abbb4e31a890d397033a9abf.zh-cn/da76f93349a72022ca4670c1b84860304616aaa2","_corruptedFile":"/home/ubuntu/.vscode-server/data/clp/e1243840abbb4e31a890d397033a9abf.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
-_ = /home/ubuntu/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/node
+_ = /home/ubuntu/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/node
 # makefile
 MAKEFILE_LIST := 
 # 'override' directive
@@ -49,21 +49,21 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_CWD = /home/ubuntu
 # environment
-SSH_CONNECTION = 122.96.45.72 16790 10.0.16.3 22
+SSH_CONNECTION = 183.207.4.182 53570 10.0.16.3 22
 # environment
-PATH = /home/ubuntu/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH = /home/ubuntu/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-2ce09458-de1b-4570-bb78-15ffe7be11c4.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-8b31b110-efd6-4098-9ce8-6dc4da348075.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
 %F = $(notdir $%)
 # environment
-PWD = /home/ubuntu/jack/Github/WebServer
+PWD = /home/ubuntu/jack/Github/WebServer/v1.1
 # default
 .LOADED := 
 # automatic
@@ -93,7 +93,7 @@ MAKECMDGOALS := all
 # environment
 SHLVL = 0
 # environment
-XDG_SESSION_ID = 15045
+XDG_SESSION_ID = 14819
 # environment
 USER = ubuntu
 # makefile
@@ -113,11 +113,11 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 122.96.45.72 16790 22
+SSH_CLIENT = 183.207.4.182 53570 22
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-BROWSER = /home/ubuntu/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/bin/helpers/browser.sh
+BROWSER = /home/ubuntu/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/bin/helpers/browser.sh
 # environment
 VSCODE_HANDLES_SIGPIPE = true
 # default
@@ -153,9 +153,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 64514, inode 1301514): 17 files, no impossibilities.
+# . (device 64514, inode 3519139): 9 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 9 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -205,12 +205,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 25 / storage = 186 B / avg = 7 B
-# current buf: size = 8162 B / used = 186 B / count = 25 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 17 / storage = 145 B / avg = 8 B
+# current buf: size = 8162 B / used = 145 B / count = 17 / avg = 8 B
 
-# strcache performance: lookups = 28 / hit rate = 10%
+# strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
-# Load=25/8192=0%, Rehash=0, Collisions=1/28=4%
-# Finished Make data base on Wed Aug 10 13:02:04 2022
+# Load=17/8192=0%, Rehash=0, Collisions=1/20=5%
+# Finished Make data base on Wed Aug 10 20:08:44 2022
 
  

@@ -11,6 +11,19 @@
 
 #include "SQLConnPool.h"
 
+SQLConnPool* SQLConnPool::instance(){
+    static SQLConnPool pool;
+    return &pool;
+}
+
+SQLConnPool::SQLConnPool(){
+    
+}
+
+SQLConnPool::~SQLConnPool(){
+    closeConnPool();
+}
+
 inline MYSQL* SQLConnPool::getConn(){
     MYSQL* mysql = nullptr;
     if(connQue_.empty()){
