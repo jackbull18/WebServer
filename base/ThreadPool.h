@@ -54,7 +54,7 @@ public:
     template<typename F>
     void appendTask(F&& task){
         {
-            std::lock_guard<std::mutex> lock(mtx_);
+            std::lock_guard<std::mutex> lock(pool_->mtx);
             pool_->tasks.emplace(std::forward<F>(task));
         }
         pool_->cond.notify_one();

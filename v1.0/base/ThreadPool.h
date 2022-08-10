@@ -8,7 +8,8 @@
  * @copyright Copyright (c) 2022
  * 
  */
-
+#ifndef THREADPOOL
+#define THREADPOOL
 #include <thread>
 #include <queue>
 #include <mutex>
@@ -54,7 +55,7 @@ public:
     template<typename F>
     void appendTask(F&& task){
         {
-            std::lock_guard<std::mutex> lock(mtx_);
+            std::lock_guard<std::mutex> lock(pool_->mtx);
             pool_->tasks.emplace(std::forward<F>(task));
         }
         pool_->cond.notify_one();
@@ -68,3 +69,5 @@ private:
     };
     std::shared_ptr<pool> pool_;
 };
+
+#endif

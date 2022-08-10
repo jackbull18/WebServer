@@ -9,16 +9,19 @@
  * 
  */
 
-#pragma once
+#ifndef WEBSERVER
+#define WEBSERVER
 
 #include "../base/HeapTimer.h"
 #include "../base/ThreadPool.h"
-#include "../net/Epoller.h"
-#include "../sql/SQLConnRAII.h"
+#include "../base/AsyncLog.h"
 #include "../sql/SQLConnPool.h"
+#include "../sql/SQLConnRAII.h"
 #include "../HTTP/HTTPConn.h"
 #include "../config/config.h"
-#include "../base/AsyncLog.h"
+
+
+#include "Epoller.h"
 
 #include <memory>
 #include <unordered_map>
@@ -112,3 +115,5 @@ private:
     std::unique_ptr<Epoller> epoller_;          /* epoll */
     std::unordered_map<int, HTTPConn> users_;   /* 连接文件描述符和连接 */
 };
+
+#endif

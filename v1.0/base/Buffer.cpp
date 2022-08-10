@@ -10,10 +10,7 @@
  */
 
 #include "Buffer.h"
-#include <assert.h>
-#include <unistd.h>
-#include <sys/uio.h>
-#include <errno.h>
+
 
 void Buffer::ensureWriteable(size_t len){
     if(writableBytes() < len){

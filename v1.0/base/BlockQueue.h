@@ -8,7 +8,8 @@
  * @copyright Copyright (c) 2022
  * 
  */
-
+#ifndef BLOCKQUEUE
+#define BLOCKQUEUE
 #include <queue>
 #include <condition_variable>
 #include <mutex>
@@ -145,8 +146,8 @@ public:
      * @param capacity 默认容量
      */
     explicit BlockQueue(size_t capacity = 1000)
-        :capacity_(capacity),
-         queue_()
+        :queue_(),capacity_(capacity)
+         
     {
         assert(capacity > 0);
         isClosed_ = false;
@@ -158,3 +159,5 @@ public:
         close();
     }
 };
+
+#endif

@@ -9,7 +9,8 @@
  * 
  */
 
-#pragma once
+#ifndef HTTPCONN
+#define HTTPCONN
 
 #include <sys/types.h>
 #include <sys/uio.h>     // readv/writev
@@ -71,3 +72,5 @@ private:
     HTTPResponse response_;
 
 };
+
+#endif

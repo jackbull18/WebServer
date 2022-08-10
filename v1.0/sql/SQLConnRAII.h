@@ -9,7 +9,8 @@
  * 
  */
 
-#pragma once
+#ifndef SQLCONNRAII
+#define SQLCONNRAII
 
 #include "SQLConnPool.h"
 
@@ -30,3 +31,5 @@ private:
     MYSQL *sql_;
     SQLConnPool* connPool_;
 };
+
+#endif

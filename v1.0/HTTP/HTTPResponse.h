@@ -9,7 +9,8 @@
  * 
  */
 
-#pragma once
+#ifndef HTTPRESPONSE
+#define HTTPRESPONSE
 
 #include "../base/Buffer.h"
 #include "../base/AsyncLog.h"
@@ -69,3 +70,5 @@ private:
     static const std::unordered_map<int, std::string> CODE_STATUS;
     static const std::unordered_map<int, std::string> CODE_PATH;
 };
+
+#endif

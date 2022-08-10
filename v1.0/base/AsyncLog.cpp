@@ -10,11 +10,7 @@
  */
 
 #include "AsyncLog.h"
-#include "Timer.h"
-#include <assert.h>
-#include <chrono>
-#include <stdio.h>
-#include <stdarg.h>
+
 
 AsyncLog::AsyncLog(){
     lineCount_ = 0;

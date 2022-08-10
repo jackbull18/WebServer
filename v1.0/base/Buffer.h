@@ -8,12 +8,16 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#pragma once
+#ifndef BUFFER
+#define BUFFER
 #include <vector>
 #include <atomic>
 #include <string.h>
 #include <unistd.h>
 #include <string>
+#include <assert.h>
+#include <sys/uio.h>
+#include <errno.h>
 
 class Buffer{
 public:
@@ -70,3 +74,5 @@ private:
     // 缓冲区当前写位置
     std::atomic<std::size_t> writePos_;
 };
+
+#endif

@@ -8,12 +8,18 @@
  * @copyright Copyright (c) 2022
  * 
  */
+#ifndef ASYNCLOG
+#define ASYNCLOG
 #include <sys/stat.h>
 #include <string.h>
 #include <stdio.h>
 #include <mutex>
 #include <memory>
 #include <thread>
+#include <assert.h>
+#include <chrono>
+#include <stdio.h>
+#include <stdarg.h>
 
 #include "Buffer.h"
 #include "Timer.h"
@@ -103,3 +109,5 @@ private:
 #define LOG_INFO(format, ...) do{LOG_BASE(1,format, ##__VA_ARGS__)} while(0);
 #define LOG_WARN(format, ...) do{LOG_BASE(2,format, ##__VA_ARGS__)} while(0);
 #define LOG_ERROR(format, ...) do{LOG_BASE(3,format, ##__VA_ARGS__)} while(0);
+
+#endif

@@ -8,7 +8,8 @@
  * @copyright Copyright (c) 2022
  * 
  */
-
+#ifndef HTTPREQUEST
+#define HTTPREQUEST
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
@@ -88,3 +89,4 @@ private:
     static const std::unordered_map<std::string, int> DEFAULT_HTML_TAG;
 
 };
+#endif

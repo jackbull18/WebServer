@@ -48,7 +48,7 @@ private:
     std::vector<struct epoll_event> events_; 
 };
 
-Epoller::Epoller(int maxEvent = 1024):epollFd_(epoll_create(8)),events_(maxEvent){
+Epoller::Epoller(int maxEvent):epollFd_(epoll_create(8)),events_(maxEvent){
     assert(epollFd_ >= 0 && events_.size() > 0);
 }
 Epoller::~Epoller(){

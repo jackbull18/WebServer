@@ -8,10 +8,15 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#include <sys/epoll.h>
-#include <assert.h>
-#include <unistd.h>
+#ifndef EPOLLER
+#define EPOLLER
+
+#include <sys/epoll.h> //epoll_ctl()
+#include <fcntl.h>  // fcntl()
+#include <unistd.h> // close()
+#include <assert.h> // close()
 #include <vector>
+#include <errno.h>
 
 
 class Epoller{
@@ -48,31 +53,6 @@ private:
     std::vector<struct epoll_event> events_; 
 };
 
-Epoller::Epoller(int maxEvent = 1024):epollFd_(epoll_create(8)),events_(maxEvent){
-    assert(epollFd_ >= 0 && events_.size() > 0);
-}
-Epoller::~Epoller(){
-    close(epollFd_);
-}
 
-bool Epoller::addFd(int fd, uint32_t events){
-    if(fd < 0) return false;
-    epoll_event ev = {0};
-    ev.data.fd = fd;
-    ev.events = events;
-    return 0 == epoll_ctl(epollFd_, EPOLL_CTL_ADD, fd, &ev);
-}
 
-bool Epoller::modfildFd(int fd, uint32_t events){
-    if(fd < 0) return false;
-    epoll_event ev = {0};
-    ev.data.fd = fd;
-    ev.events = events;
-    return 0 == epoll_ctl(epollFd_, EPOLL_CTL_MOD, fd, &ev);
-}
-
-bool Epoller::deleteFd(int fd) {
-    if(fd < 0) return false;
-    epoll_event ev = {0};
-    return 0 == epoll_ctl(epollFd_, EPOLL_CTL_DEL, fd, &ev);
-}
+#endif

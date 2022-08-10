@@ -8,7 +8,8 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#pragma once
+#ifndef TIMER
+#define TIMER
 
 #include <chrono>
 #include <iostream>
@@ -42,3 +43,5 @@ private:
 
 };
 
+
+#endif

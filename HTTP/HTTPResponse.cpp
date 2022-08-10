@@ -43,7 +43,7 @@ void HTTPResponse::createResponse(Buffer& buffer){
     }
     else if(code_ == -1) { 
         code_ = 200; 
-    }
+    }   
     dealErrorCode_();
     addStateLine_(buffer);
     addHeader_(buffer);
