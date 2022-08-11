@@ -11,7 +11,7 @@
 
 #include "config.h"
 
-inline bool Config::parseJson(const char* filename){
+bool Config::parseJson(const char* filename){
     std::ifstream ifs;
     ifs.open(filename);
     if(!ifs.is_open()){

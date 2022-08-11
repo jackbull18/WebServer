@@ -10,6 +10,7 @@
  */
 
 #include "WebServer.h"
+#include <iostream>
 
 WebServer::~WebServer(){
     close(listenFd_);
@@ -39,7 +40,7 @@ void WebServer::init(int port, int timeoutMS, bool openLinger,
     HTTPConn::srcDir = srcDir_;
 
     /* 初始化unqiue_ptr */
-    timer_ = std::make_unique<HeapTimer>();
+    timer_ = std::make_unique<HeapTimer>(64);
     threadpool_ = std::make_unique<ThreadPool>(threadNum);
     epoller_ = std::make_unique<Epoller>();
 
@@ -96,21 +97,30 @@ void WebServer::start(){
         LOG_INFO("============ Server start =============");
     }
     while(!isClose_){
+        LOG_DEBUG("enter while loop")
         if(timeoutMS_ > 0){
+            LOG_DEBUG("get tick");
             timeMS = timer_->getNextTick();
+            LOG_DEBUG("get tick success!");
         }
         int eventCnt = epoller_->wait(timeMS);
         for(int i = 0; i < eventCnt; i++){
             int fd = epoller_->getEventFd(i);
             uint32_t events = epoller_->getEvents(i);
-            if(fd == listenFd_){dealListen_();}
+            if(fd == listenFd_){
+                LOG_DEBUG("enter listen!");
+                dealListen_();
+            }
             else if(events & (EPOLLRDHUP | EPOLLHUP | EPOLLERR)){
+                LOG_DEBUG("enter close!");
                 assert(users_.count(fd) > 0);
                 closeConn_(&users_[fd]);
             }else if(events & EPOLLIN){
+                LOG_DEBUG("enter read!");
                 assert(users_.count(fd) > 0);
                 dealRead_(&users_[fd]);
             }else if(events & EPOLLOUT){
+                LOG_DEBUG("enter write!");
                 assert(users_.count(fd) > 0);
                 dealWrite_(&users_[fd]);
             }else{
@@ -181,6 +191,7 @@ bool WebServer::initSocket_(){
         close(listenFd_);
         return false;
     }
+    LOG_INFO("Epoller add listen success!");
 
     /* 设置监听非阻塞 */
     setFdNonblock_(listenFd_);
@@ -214,12 +225,14 @@ void WebServer::initEventMode_(int trigMode){
 }
 
 void WebServer::initLog_(int logLevel, int logQueSize){
-    AsyncLog::instance()->init(logLevel,"./log", ".log", logQueSize);
+    Log::Instance()->init(logLevel,"./log", ".log", logQueSize);
     LOG_INFO("============= Log init =============");
     LOG_INFO("LogSys level: %d", logLevel);
 }
 
 void WebServer::addClient_(int fd, sockaddr_in addr){
+    LOG_DEBUG("enter add client!");
+    LOG_DEBUG("conn fd: %d",fd);
     assert(fd > 0);
     users_[fd].init(fd, addr);
     if(timeoutMS_ > 0){
@@ -302,5 +315,21 @@ void WebServer::closeConn_(HTTPConn* client) {
     LOG_INFO("Client[%d] quit!",client->getFd());
     epoller_->deleteFd(client->getFd());
     client->closeConn();
+}
+
+int WebServer::setFdNonblock_(int fd){
+    assert(fd > 0);
+    return fcntl(fd, F_SETFL, fcntl(fd, F_GETFD, 0) | O_NONBLOCK);
+}
+void WebServer::sendError_(int fd, const char* info){
+    assert(fd > 0);
+    int ret = send(fd, info, strlen(info), 0);
+    close(fd);
+}
+void WebServer::addSurvivalTime_(HTTPConn* client){
+    assert(client);
+    if(timeoutMS_ > 0){
+        timer_->adjustNode(client->getFd(), timeoutMS_);
+    }
 }
 

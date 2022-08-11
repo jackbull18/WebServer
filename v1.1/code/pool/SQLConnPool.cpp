@@ -24,7 +24,7 @@ SQLConnPool::~SQLConnPool(){
     closeConnPool();
 }
 
-inline MYSQL* SQLConnPool::getConn(){
+MYSQL* SQLConnPool::getConn(){
     MYSQL* mysql = nullptr;
     if(connQue_.empty()){
         return nullptr;
@@ -38,14 +38,14 @@ inline MYSQL* SQLConnPool::getConn(){
     return mysql;
 }
 
-inline void SQLConnPool::freeConn(MYSQL* mysql){
+void SQLConnPool::freeConn(MYSQL* mysql){
     assert(mysql);
     std::lock_guard<std::mutex> lock(mtx_);
     connQue_.push(mysql);
     sem_post(&semId_);
 }
 
-inline void SQLConnPool::closeConnPool(){
+void SQLConnPool::closeConnPool(){
     std::lock_guard<std::mutex> lock(mtx_);
     while(!connQue_.empty()){
         auto sql = connQue_.front();
@@ -55,7 +55,7 @@ inline void SQLConnPool::closeConnPool(){
     mysql_library_end();
 }
 
-inline void SQLConnPool::init(const char* host, int port,
+void SQLConnPool::init(const char* host, int port,
                            const char* user,const char* pwd, 
                            const char* dbName, int connSize)
 {

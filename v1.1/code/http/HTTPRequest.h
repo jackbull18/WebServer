@@ -16,7 +16,7 @@
 #include <mysql/mysql.h>
 
 #include "../buffer/Buffer.h"
-#include "../log/AsyncLog.h"
+#include "../log/log.h"
 #include "../pool/SQLConnPool.h"
 #include "../pool/SQLConnRAII.h"
 

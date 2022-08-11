@@ -9,6 +9,7 @@
  * 
  */
 #include "HeapTimer.h"
+#include <iostream>
 
 HeapTimer::HeapTimer(int capacity){
     heap_.reserve(capacity);
@@ -18,7 +19,8 @@ HeapTimer::~HeapTimer(){
     ref_.clear();
 }
 
-inline void HeapTimer::addNode(int id , int timeout, const TimeOutCallback& callback){
+void HeapTimer::addNode(int id , int timeout, const TimeOutCallback& callback){
+    assert(id >= 0);
     size_t index;
     if(ref_.count(id) == 0){
         /* 新的节点，尾部插入，并调整堆 */
@@ -32,28 +34,46 @@ inline void HeapTimer::addNode(int id , int timeout, const TimeOutCallback& call
         heap_[index].expirationTime = Clock::now() + MS(timeout);
         heap_[index].callback = callback;
         // 先下滤后上滤
-        if(!downFilter_(index, heap_.size())){upFilter_(index);}
+        if(!downFilter_(index, heap_.size()))
+            {upFilter_(index);
+        }
     }
 }
 
-inline void HeapTimer::adjustNode(int id, int newTimeOut){
+void HeapTimer::adjustNode(int id, int newTimeOut){
     assert(!heap_.empty() && ref_.count(id) > 0);
     heap_[ref_[id]].expirationTime = Clock::now() + MS(newTimeOut);
     downFilter_(ref_[id],heap_.size());
 }
 
-inline void HeapTimer::upFilter_(size_t i){
+// void HeapTimer::upFilter_(size_t i){
+//     assert(i >= 0 && i < heap_.size());
+//     size_t j = (i - 1) / 2;
+//     while(j >= 0){
+//         if(heap_[j] < heap_[i]){break;}
+//         swapNode_(i, j);
+//         i = j;
+//         j = (i - 1)/2;
+//     }
+// }
+
+void HeapTimer::upFilter_(size_t i) {
     assert(i >= 0 && i < heap_.size());
+    if(i == 0) return;
     size_t j = (i - 1) / 2;
-    while(j >= 0){
-        if(heap_[j] < heap_[i]){break;}
+    while(j >= 0) {
+        if(heap_[j] < heap_[i]) {
+            std::cout << heap_[j].id << std::endl;
+            std::cout << "break " << "i = " << i << "j = " << j <<std::endl; 
+            break; 
+        }
         swapNode_(i, j);
         i = j;
-        j = (i - 1)/2;
+        j = (i - 1) / 2;
     }
 }
 
-inline bool HeapTimer::downFilter_(size_t index, size_t n){
+bool HeapTimer::downFilter_(size_t index, size_t n){
     assert(index >= 0 && index < heap_.size());
     assert(n >= 0 && n <= heap_.size());
     size_t i = index;
@@ -61,6 +81,7 @@ inline bool HeapTimer::downFilter_(size_t index, size_t n){
     while(j < n){
         if(j + 1 < n && heap_[j+1] < heap_[j]) j++;
         if(heap_[i] < heap_[j]) break;
+        std::cout <<"downfilter" << "i: " << i << " j: " << j << std::endl;
         swapNode_(i, j);
         i = j;
         j = i * 2 + 1;
@@ -68,7 +89,8 @@ inline bool HeapTimer::downFilter_(size_t index, size_t n){
     return i > index;
 }
 
-inline void HeapTimer::swapNode_(size_t i, size_t j){
+void HeapTimer::swapNode_(size_t i, size_t j){
+    std::cout << "i = " << i << ", j = " << j << std::endl;
     assert(i >= 0 && i < heap_.size());
     assert(j >= 0 && j < heap_.size());
     std::swap(heap_[i], heap_[j]);
@@ -76,7 +98,7 @@ inline void HeapTimer::swapNode_(size_t i, size_t j){
     ref_[heap_[j].id] = j;
 }
 
-inline void HeapTimer::tick(){
+void HeapTimer::tick(){
     //清除超时节点
     if(heap_.empty()){
         return;
@@ -91,7 +113,7 @@ inline void HeapTimer::tick(){
     }
 }
 
-inline int HeapTimer::getNextTick(){
+int HeapTimer::getNextTick(){
     tick();
     size_t res = -1;
     if(!heap_.empty()){
@@ -101,18 +123,19 @@ inline int HeapTimer::getNextTick(){
     return res;
 }
 
-inline void HeapTimer::removeNode(){
+void HeapTimer::removeNode(){
     assert(!heap_.empty());
     delNode_(0);
 }
 
-inline void HeapTimer::delNode_(size_t index){
+void HeapTimer::delNode_(size_t index){
     assert(!heap_.empty() && index >= 0 && index < heap_.size());
 
     size_t i = index;
     size_t n = heap_.size()-1;
     assert(i <= n);
     if(i < n){
+        std::cout <<"delNode" << "i: " << i << " j: " << n << std::endl;
         swapNode_(i, n);
         if(!downFilter_(i,n)){
             upFilter_(i);

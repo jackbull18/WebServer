@@ -1,0 +1,377 @@
+2022-08-11 10:29:30.372304 [info] : ============= Log init =============
+2022-08-11 10:29:30.372389 [info] : LogSys level: 1
+2022-08-11 10:29:30.372417 [info] : Server port: 8093 init successfully!
+2022-08-11 10:29:30.372421 [info] : ========== Server init ==========
+2022-08-11 10:29:30.372424 [info] : Port:8093, OpenLinger: true
+2022-08-11 10:29:30.372730 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 10:29:30.372759 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 10:29:30.372785 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 10:34:59.721816 [info] : ============= Log init =============
+2022-08-11 10:34:59.721831 [info] : LogSys level: 1
+2022-08-11 10:34:59.721855 [info] : Server port: 8093 init successfully!
+2022-08-11 10:34:59.721877 [info] : ========== Server init ==========
+2022-08-11 10:34:59.721881 [info] : Port:8093, OpenLinger: true
+2022-08-11 10:35:27.936708 [info] : ============= Log init =============
+2022-08-11 10:35:27.936722 [info] : LogSys level: 1
+2022-08-11 10:35:27.936768 [error]: Bind port 8093 failed!
+2022-08-11 10:35:27.936891 [error]: ========== Server init error!==========
+2022-08-11 10:35:55.400633 [info] : ============= Log init =============
+2022-08-11 10:35:55.400648 [info] : LogSys level: 1
+2022-08-11 10:35:55.400664 [error]: Bind port 8094 failed!
+2022-08-11 10:36:14.123354 [info] : ============= Log init =============
+2022-08-11 10:36:14.123369 [info] : LogSys level: 1
+2022-08-11 10:36:14.123392 [info] : Server port: 8095 init successfully!
+2022-08-11 10:36:14.123424 [info] : ========== Server init ==========
+2022-08-11 10:36:14.123428 [info] : Port:8095, OpenLinger: true
+2022-08-11 10:36:14.123530 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 10:36:14.123561 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 10:36:14.123588 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 10:38:48.589661 [info] : ============= Log init =============
+2022-08-11 10:38:48.589675 [info] : LogSys level: 1
+2022-08-11 10:38:48.589690 [error]: Bind port 8095 failed!
+2022-08-11 10:38:48.589740 [error]: ========== Server init error!==========
+2022-08-11 10:38:48.589864 [info] : server will be started!
+2022-08-11 10:39:17.742887 [info] : ============= Log init =============
+2022-08-11 10:39:17.742903 [info] : LogSys level: 1
+2022-08-11 10:39:17.742956 [info] : Epoller add listen success!
+2022-08-11 10:40:48.234103 [info] : ============= Log init =============
+2022-08-11 10:40:48.234113 [info] : LogSys level: 1
+2022-08-11 10:40:48.234129 [error]: Bind port 8097 failed!
+2022-08-11 10:40:48.234141 [error]: ========== Server init error!==========
+2022-08-11 10:42:29.312842 [info] : server will be started!
+2022-08-11 10:46:15.532649 [info] : ============= Log init =============
+2022-08-11 10:46:15.532664 [info] : LogSys level: 1
+2022-08-11 10:46:15.532680 [error]: Bind port 8097 failed!
+2022-08-11 10:46:15.532692 [error]: ========== Server init error!==========
+2022-08-11 10:46:15.532695 [info] : server will be started!
+2022-08-11 11:07:57.717892 [info] : ============= Log init =============
+2022-08-11 11:07:57.717910 [info] : LogSys level: 1
+2022-08-11 11:07:57.717931 [info] : Epoller add listen success!
+2022-08-11 11:07:57.717975 [info] : Server port: 8045 init successfully!
+2022-08-11 11:07:57.718079 [info] : ========== Server init ==========
+2022-08-11 11:07:57.718126 [info] : Port:8045, OpenLinger: true
+2022-08-11 11:07:57.718144 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 11:07:57.718147 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 11:07:57.718151 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 11:07:57.718154 [info] : server will be started!
+2022-08-11 11:13:18.163208 [info] : ============= Log init =============
+2022-08-11 11:13:18.163223 [info] : LogSys level: 1
+2022-08-11 11:13:18.163242 [info] : Epoller add listen success!
+2022-08-11 11:13:18.163289 [info] : Server port: 8046 init successfully!
+2022-08-11 11:13:18.164773 [info] : ========== Server init ==========
+2022-08-11 11:13:18.164846 [info] : Port:8046, OpenLinger: true
+2022-08-11 11:13:18.164887 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 11:13:18.164912 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 11:13:18.164938 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 11:13:18.164963 [info] : server will be started!
+2022-08-11 11:13:18.164988 [info] : ============ Server start =============
+2022-08-11 11:25:03.081710 [info] : ============= Log init =============
+2022-08-11 11:25:03.081722 [info] : LogSys level: 1
+2022-08-11 11:25:03.081745 [info] : Epoller add listen success!
+2022-08-11 11:25:03.081752 [info] : Server port: 8046 init successfully!
+2022-08-11 11:25:03.081756 [info] : ========== Server init ==========
+2022-08-11 11:25:03.081759 [info] : Port:8046, OpenLinger: true
+2022-08-11 11:25:03.081761 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 11:25:03.081764 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 11:25:03.081768 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 11:25:03.081771 [info] : server will be started!
+2022-08-11 11:25:03.081777 [info] : ============ Server start =============
+2022-08-11 11:27:22.340668 [info] : ============= Log init =============
+2022-08-11 11:27:22.340678 [info] : LogSys level: 1
+2022-08-11 11:27:22.340697 [info] : Epoller add listen success!
+2022-08-11 11:27:22.340705 [info] : Server port: 8046 init successfully!
+2022-08-11 11:27:22.340708 [info] : ========== Server init ==========
+2022-08-11 11:27:22.340710 [info] : Port:8046, OpenLinger: true
+2022-08-11 11:27:22.340713 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 11:27:22.340716 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 11:27:22.340719 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 11:27:22.340722 [info] : server will be started!
+2022-08-11 11:27:22.340725 [info] : ============ Server start =============
+2022-08-11 11:42:32.633277 [info] : ============= Log init =============
+2022-08-11 11:42:32.633293 [info] : LogSys level: 0
+2022-08-11 11:42:32.633313 [info] : Epoller add listen success!
+2022-08-11 11:42:32.633349 [info] : Server port: 8046 init successfully!
+2022-08-11 11:42:32.633577 [info] : ========== Server init ==========
+2022-08-11 11:42:32.633633 [info] : Port:8046, OpenLinger: true
+2022-08-11 11:42:32.633639 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 11:42:32.633642 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 11:42:32.633645 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 11:42:32.633648 [info] : server will be started!
+2022-08-11 11:42:32.633651 [info] : ============ Server start =============
+2022-08-11 11:42:32.633654 [debug]: enter while loop
+2022-08-11 11:47:49.108930 [info] : ============= Log init =============
+2022-08-11 11:47:49.108948 [info] : LogSys level: 0
+2022-08-11 11:47:49.109012 [info] : Epoller add listen success!
+2022-08-11 11:47:49.109138 [info] : Server port: 8046 init successfully!
+2022-08-11 11:47:49.109216 [info] : ========== Server init ==========
+2022-08-11 11:47:49.109274 [info] : Port:8046, OpenLinger: true
+2022-08-11 11:47:49.109312 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 11:47:49.109346 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 11:47:49.109384 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 11:47:49.109421 [info] : server will be started!
+2022-08-11 11:47:49.111553 [info] : ============ Server start =============
+2022-08-11 11:47:49.111636 [debug]: enter while loop
+2022-08-11 11:51:28.059713 [info] : ============= Log init =============
+2022-08-11 11:51:28.059729 [info] : LogSys level: 0
+2022-08-11 11:51:28.059751 [info] : Epoller add listen success!
+2022-08-11 11:51:28.059819 [info] : Server port: 8046 init successfully!
+2022-08-11 11:51:28.065266 [info] : ========== Server init ==========
+2022-08-11 11:51:28.065485 [info] : Port:8046, OpenLinger: true
+2022-08-11 11:51:28.065523 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 11:51:28.065556 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 11:51:28.065594 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 11:51:28.065619 [info] : server will be started!
+2022-08-11 11:51:28.065645 [info] : ============ Server start =============
+2022-08-11 11:51:28.065670 [debug]: enter while loop
+2022-08-11 11:55:30.779281 [info] : ============= Log init =============
+2022-08-11 11:55:30.779296 [info] : LogSys level: 0
+2022-08-11 11:55:30.779317 [info] : Epoller add listen success!
+2022-08-11 11:55:30.779368 [info] : Server port: 8046 init successfully!
+2022-08-11 11:55:30.780742 [info] : ========== Server init ==========
+2022-08-11 11:55:30.780774 [info] : Port:8046, OpenLinger: true
+2022-08-11 11:55:30.780778 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 11:55:30.780781 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 11:55:30.780784 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 11:55:30.780788 [info] : server will be started!
+2022-08-11 11:55:30.780791 [info] : ============ Server start =============
+2022-08-11 11:55:30.780794 [debug]: enter while loop
+2022-08-11 11:59:12.101350 [info] : ============= Log init =============
+2022-08-11 11:59:12.101365 [info] : LogSys level: 0
+2022-08-11 11:59:12.101386 [info] : Epoller add listen success!
+2022-08-11 11:59:12.101432 [info] : Server port: 8046 init successfully!
+2022-08-11 11:59:12.101694 [info] : ========== Server init ==========
+2022-08-11 11:59:12.101766 [info] : Port:8046, OpenLinger: true
+2022-08-11 11:59:12.101774 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 11:59:12.101778 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 11:59:12.101781 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 11:59:12.101784 [info] : server will be started!
+2022-08-11 11:59:12.101787 [info] : ============ Server start =============
+2022-08-11 11:59:12.101790 [debug]: enter while loop
+2022-08-11 11:59:19.927915 [debug]: enter listen!
+2022-08-11 12:00:51.551118 [info] : ============= Log init =============
+2022-08-11 12:00:51.551327 [info] : LogSys level: 0
+2022-08-11 12:00:51.551380 [info] : Epoller add listen success!
+2022-08-11 12:00:51.551406 [info] : Server port: 8046 init successfully!
+2022-08-11 12:00:51.551426 [info] : ========== Server init ==========
+2022-08-11 12:00:51.551444 [info] : Port:8046, OpenLinger: true
+2022-08-11 12:00:51.551463 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 12:00:51.551481 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 12:00:51.551500 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 12:00:51.551519 [info] : server will be started!
+2022-08-11 12:00:51.551538 [info] : ============ Server start =============
+2022-08-11 12:00:51.551557 [debug]: enter while loop
+2022-08-11 12:00:58.533136 [debug]: enter listen!
+2022-08-11 12:00:58.533349 [debug]: enter add client!
+2022-08-11 12:00:58.533367 [debug]: conn fd: 16
+2022-08-11 12:00:58.533378 [info] : Client[16](127.0.0.1:48674) in, userCount:1
+2022-08-11 12:05:42.418717 [info] : ============= Log init =============
+2022-08-11 12:05:42.418934 [info] : LogSys level: 0
+2022-08-11 12:05:42.418986 [info] : Epoller add listen success!
+2022-08-11 12:05:42.419013 [info] : Server port: 8046 init successfully!
+2022-08-11 12:05:42.419032 [info] : ========== Server init ==========
+2022-08-11 12:05:42.419051 [info] : Port:8046, OpenLinger: true
+2022-08-11 12:05:42.419069 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 12:05:42.419088 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 12:05:42.419106 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 12:05:42.419125 [info] : server will be started!
+2022-08-11 12:05:42.419144 [info] : ============ Server start =============
+2022-08-11 12:05:42.419162 [debug]: enter while loop
+2022-08-11 12:05:42.419181 [debug]: get tick
+2022-08-11 12:05:42.419199 [debug]: get tick success!
+2022-08-11 12:05:49.579788 [debug]: enter listen!
+2022-08-11 12:05:49.579850 [debug]: enter add client!
+2022-08-11 12:05:49.579865 [debug]: conn fd: 16
+2022-08-11 12:05:49.579876 [info] : Client[16](127.0.0.1:4132) in, userCount:1
+2022-08-11 12:09:37.903559 [info] : ============= Log init =============
+2022-08-11 12:09:37.903599 [info] : LogSys level: 0
+2022-08-11 12:09:37.904968 [info] : Epoller add listen success!
+2022-08-11 12:09:37.905001 [info] : Server port: 8046 init successfully!
+2022-08-11 12:09:37.905009 [info] : ========== Server init ==========
+2022-08-11 12:09:37.905014 [info] : Port:8046, OpenLinger: true
+2022-08-11 12:09:37.905020 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 12:09:37.905026 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 12:09:37.905031 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 12:09:37.905037 [info] : server will be started!
+2022-08-11 12:09:37.905042 [info] : ============ Server start =============
+2022-08-11 12:09:37.905047 [debug]: enter while loop
+2022-08-11 12:09:37.905053 [debug]: get tick
+2022-08-11 12:09:37.905058 [debug]: get tick success!
+2022-08-11 12:09:56.958248 [debug]: enter listen!
+2022-08-11 12:09:56.958311 [debug]: enter add client!
+2022-08-11 12:09:56.958320 [debug]: conn fd: 16
+2022-08-11 12:09:56.958331 [info] : Client[16](127.0.0.1:7205) in, userCount:1
+2022-08-11 12:13:56.894627 [info] : ============= Log init =============
+2022-08-11 12:13:56.894668 [info] : LogSys level: 0
+2022-08-11 12:13:56.894695 [info] : Epoller add listen success!
+2022-08-11 12:13:56.894710 [info] : Server port: 8046 init successfully!
+2022-08-11 12:13:56.894716 [info] : ========== Server init ==========
+2022-08-11 12:13:56.894721 [info] : Port:8046, OpenLinger: true
+2022-08-11 12:13:56.894727 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 12:13:56.894732 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 12:13:56.894738 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 12:13:56.894744 [info] : server will be started!
+2022-08-11 12:13:56.894751 [info] : ============ Server start =============
+2022-08-11 12:13:56.894761 [debug]: enter while loop
+2022-08-11 12:13:56.894767 [debug]: get tick
+2022-08-11 12:13:56.894772 [debug]: get tick success!
+2022-08-11 12:14:09.404778 [debug]: enter listen!
+2022-08-11 12:14:09.404828 [debug]: enter add client!
+2022-08-11 12:14:09.404837 [debug]: conn fd: 16
+2022-08-11 12:14:09.404847 [info] : Client[16](127.0.0.1:15910) in, userCount:1
+2022-08-11 14:31:52.807447 [info] : ============= Log init =============
+2022-08-11 14:31:52.810445 [info] : LogSys level: 0
+2022-08-11 14:31:52.810496 [info] : Epoller add listen success!
+2022-08-11 14:31:52.810684 [info] : Server port: 8046 init successfully!
+2022-08-11 14:31:52.810700 [info] : ========== Server init ==========
+2022-08-11 14:31:52.810707 [info] : Port:8046, OpenLinger: true
+2022-08-11 14:31:52.810724 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 14:31:52.810730 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 14:31:52.810736 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 14:31:52.810742 [info] : server will be started!
+2022-08-11 14:31:52.810747 [info] : ============ Server start =============
+2022-08-11 14:31:52.810753 [debug]: enter while loop
+2022-08-11 14:31:52.810758 [debug]: get tick
+2022-08-11 14:31:52.810764 [debug]: get tick success!
+2022-08-11 14:31:56.916477 [debug]: enter listen!
+2022-08-11 14:31:56.916528 [debug]: enter add client!
+2022-08-11 14:31:56.916536 [debug]: conn fd: 16
+2022-08-11 14:31:56.916548 [info] : Client[16](127.0.0.1:57926) in, userCount:1
+2022-08-11 15:28:55.614628 [info] : ============= Log init =============
+2022-08-11 15:28:55.615356 [info] : LogSys level: 0
+2022-08-11 15:28:55.615428 [info] : Epoller add listen success!
+2022-08-11 15:28:55.615456 [info] : Server port: 8046 init successfully!
+2022-08-11 15:28:55.615471 [info] : ========== Server init ==========
+2022-08-11 15:28:55.615486 [info] : Port:8046, OpenLinger: true
+2022-08-11 15:28:55.615500 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 15:28:55.615522 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 15:28:55.615537 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 15:28:55.615551 [info] : server will be started!
+2022-08-11 15:28:55.615565 [info] : ============ Server start =============
+2022-08-11 15:28:55.615579 [debug]: enter while loop
+2022-08-11 15:28:55.615593 [debug]: get tick
+2022-08-11 15:28:55.615607 [debug]: get tick success!
+2022-08-11 15:29:03.156520 [debug]: enter listen!
+2022-08-11 15:29:03.156578 [debug]: enter add client!
+2022-08-11 15:29:03.156586 [debug]: conn fd: 16
+2022-08-11 15:29:03.156596 [info] : Client[16](127.0.0.1:12374) in, userCount:1
+2022-08-11 15:33:27.597878 [info] : ============= Log init =============
+2022-08-11 15:33:27.598506 [info] : LogSys level: 0
+2022-08-11 15:33:27.598536 [info] : Epoller add listen success!
+2022-08-11 15:33:27.598553 [info] : Server port: 8046 init successfully!
+2022-08-11 15:33:27.598559 [info] : ========== Server init ==========
+2022-08-11 15:33:27.598565 [info] : Port:8046, OpenLinger: true
+2022-08-11 15:33:27.598571 [info] : Listen Mode: LT, OpenConn Mode: ET
+2022-08-11 15:33:27.598576 [info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022-08-11 15:33:27.598583 [info] : SqlConnPool num: 10, ThreadPool num: 8
+2022-08-11 15:33:27.598589 [info] : server will be started!
+2022-08-11 15:33:27.598595 [info] : ============ Server start =============
+2022-08-11 15:33:27.598600 [debug]: enter while loop
+2022-08-11 15:33:27.598605 [debug]: get tick
+2022-08-11 15:33:27.598611 [debug]: get tick success!
+2022-08-11 15:33:31.300658 [debug]: enter listen!
+2022-08-11 15:33:31.300720 [debug]: enter add client!
+2022-08-11 15:33:31.300729 [debug]: conn fd: 16
+2022-08-11 15:33:31.300741 [info] : Client[16](127.0.0.1:25687) in, userCount:1
+2022-08-11 15:33:31.300761 [info] : Client[16] in!
+2022-08-11 15:33:31.300767 [debug]: enter while loop
+2022-08-11 15:33:31.300772 [debug]: get tick
+2022-08-11 15:33:31.300778 [debug]: get tick success!
+2022-08-11 15:33:31.300785 [debug]: enter read!
+2022-08-11 15:33:31.300798 [debug]: enter while loop
+2022-08-11 15:33:31.300804 [debug]: get tick
+2022-08-11 15:33:31.300809 [debug]: get tick success!
+2022-08-11 15:33:31.301916 [debug]: [GET], [/], [1.1]
+2022-08-11 15:33:31.301950 [debug]: /
+2022-08-11 15:33:31.301984 [debug]: filesize:4096, 1  to 218
+2022-08-11 15:33:31.302020 [debug]: enter write!
+2022-08-11 15:33:31.302032 [debug]: enter while loop
+2022-08-11 15:33:31.302038 [debug]: get tick
+2022-08-11 15:33:31.302043 [debug]: get tick success!
+2022-08-11 15:33:31.302172 [info] : Client[16] quit!
+2022-08-11 15:33:31.303179 [debug]: enter listen!
+2022-08-11 15:33:31.303209 [debug]: enter add client!
+2022-08-11 15:33:31.303216 [debug]: conn fd: 16
+2022-08-11 15:33:31.303223 [info] : Client[16](127.0.0.1:26199) in, userCount:1
+2022-08-11 15:33:31.303237 [info] : Client[16] in!
+2022-08-11 15:33:31.303243 [debug]: enter while loop
+2022-08-11 15:33:31.303248 [debug]: get tick
+2022-08-11 15:33:31.303253 [debug]: get tick success!
+2022-08-11 15:33:31.303343 [info] : Client[16](127.0.0.1:26199) quit, UserCount:1
+2022-08-11 15:33:31.312332 [debug]: enter while loop
+2022-08-11 15:33:31.312374 [debug]: get tick
+2022-08-11 15:33:31.312384 [info] : Client[16] quit!
+2022-08-11 15:33:31.313717 [info] : Client[16](127.0.0.1:26199) quit, UserCount:0
+2022-08-11 15:33:31.313741 [debug]: get tick success!
+2022-08-11 15:33:31.541039 [debug]: enter listen!
+2022-08-11 15:33:31.541097 [debug]: enter add client!
+2022-08-11 15:33:31.541105 [debug]: conn fd: 16
+2022-08-11 15:33:31.541113 [info] : Client[16](127.0.0.1:27223) in, userCount:1
+2022-08-11 15:33:31.541131 [info] : Client[16] in!
+2022-08-11 15:33:31.541137 [debug]: enter while loop
+2022-08-11 15:33:31.541142 [debug]: get tick
+2022-08-11 15:33:31.541149 [debug]: get tick success!
+2022-08-11 15:33:31.545033 [debug]: enter read!
+2022-08-11 15:33:31.545100 [debug]: enter while loop
+2022-08-11 15:33:31.545110 [debug]: get tick
+2022-08-11 15:33:31.545120 [debug]: get tick success!
+2022-08-11 15:33:31.546243 [debug]: [GET], [/favicon.ico], [1.1]
+2022-08-11 15:33:31.546275 [debug]: /favicon.ico
+2022-08-11 15:33:31.546309 [debug]: filesize:0, 1  to 218
+2022-08-11 15:33:31.546361 [debug]: enter write!
+2022-08-11 15:33:31.546373 [debug]: enter while loop
+2022-08-11 15:33:31.546381 [debug]: get tick
+2022-08-11 15:33:31.546389 [debug]: get tick success!
+2022-08-11 15:33:31.546436 [info] : Client[16] quit!
+2022-08-11 15:33:31.548609 [info] : Client[16](127.0.0.1:27223) quit, UserCount:0
+2022-08-11 15:33:31.555470 [debug]: enter while loop
+2022-08-11 15:33:31.555507 [debug]: get tick
+2022-08-11 15:33:31.555517 [info] : Client[16] quit!
+2022-08-11 15:33:31.555525 [debug]: get tick success!
+2022-08-11 15:34:03.333148 [debug]: enter listen!
+2022-08-11 15:34:03.333204 [debug]: enter add client!
+2022-08-11 15:34:03.333212 [debug]: conn fd: 16
+2022-08-11 15:34:03.333221 [info] : Client[16](127.0.0.1:37463) in, userCount:1
+2022-08-11 15:34:03.333256 [info] : Client[16] in!
+2022-08-11 15:34:03.333263 [debug]: enter while loop
+2022-08-11 15:34:03.333269 [debug]: get tick
+2022-08-11 15:34:03.333275 [debug]: get tick success!
+2022-08-11 15:34:03.337112 [debug]: enter listen!
+2022-08-11 15:34:03.337167 [debug]: enter add client!
+2022-08-11 15:34:03.337174 [debug]: conn fd: 17
+2022-08-11 15:34:03.337190 [info] : Client[17](127.0.0.1:37975) in, userCount:2
+2022-08-11 15:34:03.337349 [info] : Client[17] in!
+2022-08-11 15:34:03.337362 [debug]: enter while loop
+2022-08-11 15:34:03.337368 [debug]: get tick
+2022-08-11 15:34:03.337374 [debug]: get tick success!
+2022-08-11 15:34:03.337381 [debug]: enter read!
+2022-08-11 15:34:03.337433 [debug]: enter while loop
+2022-08-11 15:34:03.337444 [debug]: get tick
+2022-08-11 15:34:03.337450 [debug]: get tick success!
+2022-08-11 15:34:03.338512 [debug]: [GET], [/], [1.1]
+2022-08-11 15:34:03.338553 [debug]: /
+2022-08-11 15:34:03.338578 [debug]: filesize:4096, 1  to 218
+2022-08-11 15:34:03.338623 [debug]: enter write!
+2022-08-11 15:34:03.338653 [debug]: enter while loop
+2022-08-11 15:34:03.338659 [debug]: get tick
+2022-08-11 15:34:03.338666 [debug]: get tick success!
+2022-08-11 15:34:03.338872 [info] : Client[16] quit!
+2022-08-11 15:34:03.345797 [info] : Client[16](127.0.0.1:37463) quit, UserCount:1
+2022-08-11 15:34:03.346741 [debug]: enter while loop
+2022-08-11 15:34:03.346771 [debug]: get tick
+2022-08-11 15:34:03.346780 [info] : Client[17] quit!
+2022-08-11 15:34:03.348417 [info] : Client[17](127.0.0.1:37975) quit, UserCount:0
+2022-08-11 15:34:03.348690 [info] : Client[16] quit!
+2022-08-11 15:34:03.348710 [debug]: get tick success!
+2022-08-11 15:34:03.600507 [debug]: enter listen!
+2022-08-11 15:34:03.600586 [debug]: enter add client!
+2022-08-11 15:34:03.600597 [debug]: conn fd: 16
+2022-08-11 15:34:03.600607 [info] : Client[16](127.0.0.1:39511) in, userCount:1
+2022-08-11 15:34:03.600623 [info] : Client[16] in!
+2022-08-11 15:34:03.600632 [debug]: enter while loop
+2022-08-11 15:34:03.600638 [debug]: get tick
+2022-08-11 15:34:03.600645 [debug]: get tick success!
+2022-08-11 15:34:03.609737 [debug]: enter while loop
+2022-08-11 15:34:03.609795 [debug]: get tick
+2022-08-11 15:34:03.609807 [info] : Client[16] quit!
+2022-08-11 15:34:03.610593 [info] : Client[16](127.0.0.1:39511) quit, UserCount:0
+2022-08-11 15:34:03.610624 [debug]: get tick success!

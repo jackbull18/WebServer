@@ -1,0 +1,11 @@
+2022_08_10 21:07:31.841722[info] : ============= Log init =============
+2022_08_10 21:07:31.841732[info] : LogSys level: 1
+2022_08_10 21:07:31.841755[info] : Server port: 8092 init successfully!
+2022_08_10 21:07:31.841782[info] : ========== Server init ==========
+2022_08_10 21:07:31.841803[info] : Port:8092, OpenLinger: true
+2022_08_10 21:07:31.841924[info] : Listen Mode: LT, OpenConn Mode: ET
+2022_08_10 21:07:31.842030[info] : srcDir: /home/ubuntu/jack/Github/WebServer/v1.1/resources/
+2022_08_10 21:08:15.235050[info] : ============= Log init =============
+2022_08_10 21:08:15.235059[info] : LogSys level: 1
+2022_08_10 21:08:15.235101[info] : Server port: 8093 init successfully!
+2022_08_10 21:08:15.235242[info] : ========== Server init ==========

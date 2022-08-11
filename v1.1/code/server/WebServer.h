@@ -17,7 +17,7 @@
 #include "Epoller.h"
 #include "../timer/HeapTimer.h"
 #include "../pool/ThreadPool.h"
-#include "../log/AsyncLog.h"
+#include "../log/log.h"
 #include "../pool/SQLConnPool.h"
 #include "../pool/SQLConnRAII.h"
 #include "../http/HTTPConn.h"
@@ -78,21 +78,9 @@ private:
     void closeConn_(HTTPConn* client);
 
     /* 辅助函数 */
-    int setFdNonblock_(int fd){
-        assert(fd > 0);
-        return fcntl(fd, F_SETFL, fcntl(fd, F_GETFD, 0) | O_NONBLOCK);
-    }
-    void sendError_(int fd, const char* info){
-        assert(fd > 0);
-        int ret = send(fd, info, strlen(info), 0);
-        close(fd);
-    }
-    void addSurvivalTime_(HTTPConn* client){
-        assert(client);
-        if(timeoutMS_ > 0){
-            timer_->adjustNode(client->getFd(), timeoutMS_);
-        }
-    }
+    int setFdNonblock_(int fd);
+    void sendError_(int fd, const char* info);
+    void addSurvivalTime_(HTTPConn* client);
 
 
 private:

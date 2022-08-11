@@ -1,0 +1,15 @@
+{
+    "port" : 8046,
+    "trigMode" : 1,  
+    "timeoutMS" : 10,
+    "optLinger" : 1,
+    "sqlPort" : 3036,
+    "sqlUser" : "root",
+    "sqlPwd" : "jackbull",
+    "dbName" : "mydb",
+    "connPoolNum" : 10,
+    "threadNum" : 8,
+    "openLog" : 1,
+    "logLevel" : 0,
+    "logQueSize" : 0
+}

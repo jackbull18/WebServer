@@ -13,7 +13,7 @@
 #define HTTPRESPONSE
 
 #include "../buffer/Buffer.h"
-#include "../log/AsyncLog.h"
+#include "../log/log.h"
 
 
 

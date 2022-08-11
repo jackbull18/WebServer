@@ -22,6 +22,7 @@ int main(){
     WebServer server;
     server.init(config);
 
+    LOG_INFO("server will be started!");
     /* 启动服务器 */
     server.start();
 }
